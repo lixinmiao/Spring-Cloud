@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: microservice-config-client
+  profiles:
+    active: dev
+  cloud:
+    config:
+      #uri: http://localhost:8888
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: microservice-config-server
+  rabbitmq:
+    addresses: localhost
+    port: 5762
+
+management:
+  security:
+    enabled: false
+server:
+  port: 9000
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8761/eureka/
+  instance:
+     prefer-ip-address: true
+
+
+

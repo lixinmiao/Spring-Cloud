@@ -1,0 +1,30 @@
+server:
+  port: 7901
+Spring:
+jpa:
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: mysql
+    username: web
+    password: web
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    url: jdbc:mysql://172.16.2.181:3306/valueplusback?useUnicode=true&characterEncoding=UTF-8
+  application:
+    name: microservice-provider-user
+  zipkin:
+    base-url: http://localhost:9411
+logging:
+  level: info
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
